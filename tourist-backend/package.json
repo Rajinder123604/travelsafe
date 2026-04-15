@@ -1,0 +1,17 @@
+{
+  "name": "tourist-backend",
+  "version": "1.0.0",
+  "description": "Tourist Safety Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Rajinder",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0"
+  }
+}
