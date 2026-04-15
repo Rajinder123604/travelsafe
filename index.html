@@ -157,12 +157,25 @@ button {
 // LOGIN
 async function login() {
 
+<<<<<<< HEAD
 let res = await fetch("http://localhost:3000/login", {
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body: JSON.stringify({
 username: username.value,
 password: password.value
+=======
+alert("Login clicked");
+
+let res = await fetch("https://touristbackend-1-pa9u.onrender.com/login", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+username: document.getElementById("username").value,
+password: document.getElementById("password").value
+>>>>>>> 3ef08624d9ec6a35a776b586b93da5f8f3386b7a
 })
 });
 
@@ -170,16 +183,23 @@ let data = await res.json();
 
 alert(data.message);
 
+<<<<<<< HEAD
 // ✅ EASY FIX
 if(data.message.includes("success")){
 
 document.getElementById("loginPage").style.display="none";
 document.getElementById("dashboard").style.display="block";
 
+=======
+if (data.success) {
+document.getElementById("loginPage").style.display = "none";
+document.getElementById("dashboard").style.display = "block";
+>>>>>>> 3ef08624d9ec6a35a776b586b93da5f8f3386b7a
 }
 
 }
 
+<<<<<<< HEAD
 
 // REGISTER
 async function register(){
@@ -194,6 +214,23 @@ body: JSON.stringify({username:u,password:p})
 
 let data=await res.json();
 alert(data.message);
+=======
+// REGISTER
+async function register(){
+
+let u = username.value;
+let p = password.value;
+
+let res = await fetch("https://touristbackend-1-pa9u.onrender.com/register", {
+method: "POST",
+headers: {"Content-Type": "application/json"},
+body: JSON.stringify({username: u, password: p})
+});
+
+let data = await res.json();
+alert(data.message);
+
+>>>>>>> 3ef08624d9ec6a35a776b586b93da5f8f3386b7a
 }
 
 // LOCATION
@@ -272,4 +309,8 @@ alert("⚠️ Real-time alert: Stay safe!");
     
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async>
 
+<<<<<<< HEAD
 </script>
+=======
+</script>
+>>>>>>> 3ef08624d9ec6a35a776b586b93da5f8f3386b7a
