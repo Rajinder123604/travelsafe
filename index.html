@@ -10,7 +10,7 @@ body {
     background: #f4f6f9;
 }
 
-/* TOP GOOGLE TRANSLATOR BAR */
+/* TOP BAR */
 #topBar {
     position: fixed;
     top: 0;
@@ -23,42 +23,8 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* LOGIN */
-#loginPage {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
-}
-
-.login-box {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 260px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-input {
-    width: 90%;
-    padding: 8px;
-    margin: 8px;
-}
-
-button {
-    padding: 8px 15px;
-    margin: 5px;
-    border: none;
-    background: black;
-    color: white;
-    border-radius: 5px;
-}
-
 /* DASHBOARD */
 #dashboard {
-    display: none;
     padding: 20px;
     text-align: center;
     margin-top: 60px;
@@ -80,11 +46,9 @@ button {
     cursor: pointer;
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
     transition: 0.3s;
-    font-size: 16px;
 }
 
 .card:hover {
-    background: #e2e8f0;
     transform: scale(1.05);
 }
 
@@ -94,33 +58,16 @@ button {
     margin: 20px auto;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- TOP TRANSLATOR -->
+<!-- TRANSLATOR -->
 <div id="topBar">
     <div id="google_translate_element"></div>
 </div>
 
-<!-- LOGIN -->
-<div id="loginPage">
-    <div class="login-box">
-        <h2>🔒 Secure Travel</h2>
-        <p style="font-size:12px;color:gray;">
-        Travel smart, stay safe — your safety is our priority
-        </p>
-
-        <input id="username" placeholder="Username"><br>
-        <input id="password" type="password" placeholder="Password"><br>
-
-        <button onclick="register()">Register</button>
-        <button onclick="login()">Login</button>
-    </div>
-</div>
-
-<!-- DASHBOARD -->
+<!-- DASHBOARD (DIRECT OPEN) -->
 <div id="dashboard">
 
 <h2>Tourist Safety Dashboard</h2>
@@ -147,91 +94,12 @@ button {
 <div id="idBox" style="display:none;">
 <h3>Digital ID</h3>
 <p>Name: Rajinder</p>
-<p>Status: Blockchain Verified ✅</p>
+<p>Status: Verified ✅</p>
 </div>
 
 </div>
 
 <script>
-
-// LOGIN
-async function login() {
-
-<<<<<<< HEAD
-let res = await fetch("http://localhost:3000/login", {
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body: JSON.stringify({
-username: username.value,
-password: password.value
-=======
-alert("Login clicked");
-
-let res = await fetch("https://touristbackend-1-pa9u.onrender.com/login", {
-method: "POST",
-headers: {
-"Content-Type": "application/json"
-},
-body: JSON.stringify({
-username: document.getElementById("username").value,
-password: document.getElementById("password").value
->>>>>>> 3ef08624d9ec6a35a776b586b93da5f8f3386b7a
-})
-});
-
-let data = await res.json();
-
-alert(data.message);
-
-<<<<<<< HEAD
-// ✅ EASY FIX
-if(data.message.includes("success")){
-
-document.getElementById("loginPage").style.display="none";
-document.getElementById("dashboard").style.display="block";
-
-=======
-if (data.success) {
-document.getElementById("loginPage").style.display = "none";
-document.getElementById("dashboard").style.display = "block";
->>>>>>> 3ef08624d9ec6a35a776b586b93da5f8f3386b7a
-}
-
-}
-
-<<<<<<< HEAD
-
-// REGISTER
-async function register(){
-let u=username.value;
-let p=password.value;
-
-let res=await fetch("http://localhost:3000/register",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body: JSON.stringify({username:u,password:p})
-});
-
-let data=await res.json();
-alert(data.message);
-=======
-// REGISTER
-async function register(){
-
-let u = username.value;
-let p = password.value;
-
-let res = await fetch("https://touristbackend-1-pa9u.onrender.com/register", {
-method: "POST",
-headers: {"Content-Type": "application/json"},
-body: JSON.stringify({username: u, password: p})
-});
-
-let data = await res.json();
-alert(data.message);
-
->>>>>>> 3ef08624d9ec6a35a776b586b93da5f8f3386b7a
-}
 
 // LOCATION
 function getLocation(){
@@ -270,9 +138,9 @@ function checkOnline(){
 alert(navigator.onLine ? "Online ✅" : "Offline ❌");
 }
 
-// DIGITAL ID
+// ID
 function showID(){
-idBox.style.display="block";
+document.getElementById("idBox").style.display="block";
 }
 
 // CHATBOT
@@ -284,33 +152,26 @@ msg = msg.toLowerCase();
 
 if(msg.includes("police")) alert("Use Police feature 🚓");
 else if(msg.includes("hotel")) alert("Use Hotels feature 🏨");
-else if(msg.includes("safe")) alert("Stay in safe public areas!");
 else alert("I help you 😊");
 }
 
 // ALERT
 function alertUser(){
-alert("⚠️ Real-time alert: Stay safe!");
+alert("⚠️ Stay safe!");
 }
 
 </script>
 
-<!-- GOOGLE TRANSLATOR SCRIPT (FIXED) -->
+<!-- GOOGLE TRANSLATE -->
 <script>
-    function googleTranslateElementInit() {
-      setTimeout(() => {
-        new google.translate.TranslateElement(
-          { pageLanguage: 'en' },
-          'google_translate_element'
-        );
-      }, 500);
-    }
-    </script>
-    
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+        { pageLanguage: 'en' },
+        'google_translate_element'
+    );
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<<<<<<< HEAD
-</script>
-=======
-</script>
->>>>>>> 3ef08624d9ec6a35a776b586b93da5f8f3386b7a
+</body>
+</html>
