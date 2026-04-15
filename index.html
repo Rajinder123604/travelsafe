@@ -157,6 +157,8 @@ button {
 // LOGIN
 async function login() {
 
+alert("Login clicked");
+
 let res = await fetch("https://touristbackend-qslq.onrender.com/login", {
 method: "POST",
 headers: {
@@ -185,7 +187,7 @@ async function register(){
 let u = username.value;
 let p = password.value;
 
-let res = await fetch("https://touristbackend-qsIq.onrender.com/register", {
+let res = await fetch("https://touristbackend-qslq.onrender.com/register", {
 method: "POST",
 headers: {"Content-Type": "application/json"},
 body: JSON.stringify({username: u, password: p})
