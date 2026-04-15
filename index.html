@@ -181,17 +181,19 @@ document.getElementById("dashboard").style.display = "block";
 
 // REGISTER
 async function register(){
-let u=username.value;
-let p=password.value;
 
-let res=await fetch("http://localhost:3000/register",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body: JSON.stringify({username:u,password:p})
+let u = username.value;
+let p = password.value;
+
+let res = await fetch("https://touristbackend-qsIq.onrender.com/register", {
+method: "POST",
+headers: {"Content-Type": "application/json"},
+body: JSON.stringify({username: u, password: p})
 });
 
-let data=await res.json();
+let data = await res.json();
 alert(data.message);
+
 }
 
 // LOCATION
